@@ -1,0 +1,27 @@
+/* src/app/nav-field/nav-field.component.css */
+nav {
+  margin-bottom: 20px;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  display: flex;
+  gap: 10px;
+}
+
+li {
+  display: inline;
+}
+
+a {
+  text-decoration: none;
+  color: #007bff;
+  padding: 5px 10px;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+a:hover {
+  background-color: #e2e6ea;
+}

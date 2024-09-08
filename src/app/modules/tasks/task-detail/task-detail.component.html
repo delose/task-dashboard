@@ -1,0 +1,13 @@
+<div class="container">
+  <h2>{{ isNewTask ? 'Add New Task' : 'Edit Task' }}</h2>
+  <app-task-form
+    *ngIf="task$ | async as task"
+    [task]="task"
+    (formSubmit)="onTaskFormSubmit($event)"
+  ></app-task-form>
+
+  <app-task-form
+    *ngIf="isNewTask"
+    (formSubmit)="onTaskFormSubmit($event)"
+  ></app-task-form>
+</div>

@@ -1,0 +1,32 @@
+<div class="container shadow rounded p-4">
+    <form [formGroup]="taskForm" (ngSubmit)="onSubmit()">
+      <div>
+        <label for="title">Title</label>
+        <input id="title" formControlName="title" type="text" />
+        <div *ngIf="taskForm.get('title')?.invalid && taskForm.get('title')?.touched">
+          Title is required.
+        </div>
+      </div>
+    
+      <div>
+        <label for="description">Description</label>
+        <textarea id="description" formControlName="description"></textarea>
+      </div>
+    
+      <div>
+        <label for="status">Status</label>
+        <select id="status" formControlName="status">
+          <option value="To Do">To Do</option>
+          <option value="In Progress">In Progress</option>
+          <option value="Done">Done</option>
+        </select>
+      </div>
+    
+      <div>
+        <label for="dueDate">Due Date</label>
+        <input id="dueDate" formControlName="dueDate" type="date" />
+      </div>
+    
+      <button type="submit" [disabled]="taskForm.invalid">Submit</button>
+    </form>
+</div>
