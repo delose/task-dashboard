@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Observable, switchMap, map, of } from 'rxjs';
 import { TaskService } from '../../../core/services/task.service';
@@ -23,7 +23,8 @@ export class TaskDetailComponent implements OnInit {
   constructor(
     private taskService: TaskService,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private cdr: ChangeDetectorRef
   ) {}
 
   ngOnInit(): void {
@@ -40,6 +41,8 @@ export class TaskDetailComponent implements OnInit {
         }
       })
     );
+    this.cdr.detectChanges();
+
   }
 
   onTaskFormSubmit(task: Task): void {
